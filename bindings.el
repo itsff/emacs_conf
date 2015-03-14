@@ -1,3 +1,10 @@
+
+; To make it work better in terminal
+(global-set-key (kbd "C-x ?") 'help-command)
+(global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "M-h") 'backward-kill-word)
+
+
 (defvar bindings-c-mode-keymap (make-keymap) "bindings-c-mode keymap")
 
 (define-key bindings-c-mode-keymap (kbd "C-\\")       nil)
@@ -45,8 +52,9 @@
 (define-key bindings-dev-mode-keymap (kbd "<backtab>") 'editing-unindent)
 (define-key bindings-dev-mode-keymap (kbd "RET")       'newline-and-indent)
 (define-key bindings-dev-mode-keymap (kbd "<home>")    'editing-smart-home)
-(define-key bindings-dev-mode-keymap (kbd "M-.")       'tagging-find-tag-now)
-(define-key bindings-dev-mode-keymap (kbd "C-.")       'tagging-find-tag-other-window-now)
+(define-key bindings-dev-mode-keymap (kbd "M-.")       'company-complete)
+(define-key bindings-dev-mode-keymap (kbd "M-,")       'tagging-find-tag-now)
+(define-key bindings-dev-mode-keymap (kbd "C-,")       'tagging-find-tag-other-window-now)
 (define-key bindings-dev-mode-keymap (kbd "C->")       'tagging-search-tags)
 (define-key bindings-dev-mode-keymap (kbd "M-<left>")  'editing-smart-home)
 (define-key bindings-dev-mode-keymap (kbd "M-<right>") 'move-end-of-line)
@@ -81,6 +89,8 @@
 (define-key bindings-basic-mode-keymap (kbd "M-<right>") 'move-end-of-line)
 (define-key bindings-basic-mode-keymap (kbd "M-<up>")    'cua-scroll-down)
 (define-key bindings-basic-mode-keymap (kbd "M-<down>")  'cua-scroll-up)
+(define-key bindings-basic-mode-keymap (kbd "C-a")       'mark-whole-buffer)
+
 
 (define-minor-mode
     bindings-basic-mode

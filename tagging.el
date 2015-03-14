@@ -13,7 +13,7 @@
     (interactive)
     (compile
         (format
-            "exctags -f %s --languages=C,C++,Make,HTML,Tex --file-scope=no --c-kinds=+cdefgmnstuv -e -R %s"
+            "ctags -f %s --languages=C,C++,Make,HTML,Tex --file-scope=no --c-kinds=+cdefgmnstuv -e -R %s"
             tags-file-name
             (expand-file-name tagging-root-path)))
     (delete-window (get-buffer-window (get-buffer "*compilation*"))))
