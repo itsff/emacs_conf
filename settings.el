@@ -51,6 +51,28 @@
         (sanitize-implicit-utf-8-unix)))
 
 
+
+(defun settings-c++-mode-config ()
+    (when(eq major-mode 'c++-mode)
+        (set-buffer-file-coding-system 'utf-8-unix nil 1)
+        (bindings-c-mode               1)
+
+
+        (setq c-syntactic-indentation 1)
+        (setq c-basic-offset          4)
+        (setq tab-width               4)
+        (setq indent-tabs-mode        nil)
+        (setq c-tab-always-indent     1)
+        (setq require-final-newline   'visit-save)
+        (styles-c++-mode)))
+
+
+(defun settings-c++-mode-sanitize ()
+    (when(eq major-mode 'c++-mode)
+        (sanitize-implicit-utf-8-unix)))
+
+
+
 (defun settings-gmake-mode-config ()
     (when(eq major-mode 'makefile-gmake-mode)
         (set-buffer-file-coding-system 'utf-8-unix nil 1)
@@ -168,10 +190,10 @@
         (set-buffer-file-coding-system 'utf-8-unix nil 1)
         (bindings-basic-mode           1)
 
-        (set
-            (make-local-variable 'whitespace-style)
-            '(tabs spaces space-mark tab-mark face lines-tail))
-        (whitespace-mode 1)
+        ;(set
+        ;    (make-local-variable 'whitespace-style)
+        ;    '(tabs spaces space-mark tab-mark face lines-tail))
+        ;(whitespace-mode 1)
 
         (setq tab-width             4)))
 
@@ -184,6 +206,7 @@
 
 
 (add-hook 'c-mode-hook              'settings-c-mode-config)
+(add-hook 'c++-mode-hook            'settings-c++-mode-config)
 (add-hook 'makefile-gmake-mode-hook 'settings-gmake-mode-config)
 (add-hook 'scala-mode-hook          'settings-scala-mode-config)
 (add-hook 'java-mode-hook           'settings-java-mode-config)
@@ -195,6 +218,7 @@
 (add-hook 'minibuffer-setup-hook    'settings-minibuffer-mode-config)
 
 (add-hook 'after-change-major-mode-hook 'settings-c-mode-sanitize)
+(add-hook 'after-change-major-mode-hook 'settings-c++-mode-sanitize)
 (add-hook 'after-change-major-mode-hook 'settings-gmake-mode-sanitize)
 (add-hook 'after-change-major-mode-hook 'settings-scala-mode-sanitize)
 (add-hook 'after-change-major-mode-hook 'settings-java-mode-sanitize)
@@ -205,6 +229,7 @@
 (add-hook 'after-change-major-mode-hook 'settings-text-mode-sanitize)
 
 (add-hook 'before-save-hook 'settings-c-mode-sanitize)
+(add-hook 'before-save-hook 'settings-c++-mode-sanitize)
 (add-hook 'before-save-hook 'settings-gmake-mode-sanitize)
 (add-hook 'before-save-hook 'settings-scala-mode-sanitize)
 (add-hook 'before-save-hook 'settings-java-mode-sanitize)
@@ -217,12 +242,12 @@
 
 (setq auto-mode-alist (append '(
                                    ("\\.c$"     . c-mode)
-                                   ("\\.cpp$"   . c-mode)
-                                   ("\\.cc$"    . c-mode)
-                                   ("\\.cxx$"   . c-mode)
+                                   ("\\.cpp$"   . c++-mode)
+                                   ("\\.cc$"    . c++-mode)
+                                   ("\\.cxx$"   . c++-mode)
                                    ("\\.h$"     . c-mode)
-                                   ("\\.hpp$"   . c-mode)
-                                   ("\\.cs$"    . c-mode)
+                                   ("\\.hpp$"   . c++-mode)
+                                   ("\\.cs$"    . c++-mode)
 
                                    ("\\.mk$"    . makefile-gmake-mode)
                                    ("Makefile$" . makefile-gmake-mode)

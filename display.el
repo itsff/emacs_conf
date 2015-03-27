@@ -10,3 +10,5 @@
 (display-reset-window)
 
 (load-theme 'misterioso 1)
+
+(set-default 'truncate-lines t)
