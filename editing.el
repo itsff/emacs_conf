@@ -50,7 +50,12 @@
 
 (defun shift-left ()
   (interactive)
-  (shift-region -1))
+    (shift-region -1))
+
+(defun align-to-equals (begin end)
+  "Align region to equal signs"
+   (interactive "r")
+   (align-regexp begin end "\\(\\s-*\\)=" 1 1 ))
 
 ;(global-set-key [C-S-right] 'shift-right)
 ;(global-set-key [C-S-left] 'shift-left)

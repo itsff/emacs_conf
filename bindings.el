@@ -4,6 +4,8 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
 
+(global-set-key (kbd "M-.") 'company-complete)
+
 
 (defvar bindings-c-mode-keymap (make-keymap) "bindings-c-mode keymap")
 
@@ -89,7 +91,7 @@
 (define-key bindings-basic-mode-keymap (kbd "M-<right>") 'move-end-of-line)
 (define-key bindings-basic-mode-keymap (kbd "M-<up>")    'cua-scroll-down)
 (define-key bindings-basic-mode-keymap (kbd "M-<down>")  'cua-scroll-up)
-(define-key bindings-basic-mode-keymap (kbd "C-a")       'mark-whole-buffer)
+
 
 
 (define-minor-mode
@@ -118,3 +120,7 @@
     nil
     nil
     bindings-minibuffer-mode-keymap)
+
+
+; Shift-click
+(define-key global-map (kbd "<S-down-mouse-1>") 'mouse-save-then-kill)

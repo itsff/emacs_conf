@@ -8,9 +8,12 @@
 (setq-default c-default-style                   "user")
 
 (setq default-major-mode             'text-mode)
-(setq backup-directory-alist         `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms `((".*"   ,temporary-file-directory 1)))
+(setq backup-directory-alist         `((".*#" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms `((".*#"   ,temporary-file-directory 1)))
 (setq auto-save-list-file-prefix     temporary-file-directory)
+
+(require 'path-headerline-mode)
+(path-headerline-mode +1)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -19,6 +22,7 @@
 (setq-default cua-auto-tabify-rectangles nil)
 (setq-default cua-keep-region-after-copy 1)
 
+(setq-default indent-tabs-mode       nil)
 (setq-default whitespace-line-column nil)
 (setq-default whitespace-style       '(face lines-tail))
 (global-whitespace-mode              1)
