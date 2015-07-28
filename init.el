@@ -1,6 +1,7 @@
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (load-library "packages")
+(load-library "monokai-theme")
 (load-library "utils")
 (load-library "align")
 (load-library "dired-x")
@@ -13,7 +14,7 @@
 (load-library "settings")
 (load-library "display")
 (load-library "bindings")
-(load-library "monokai-theme")
+
 
 
 ;; Markdown mode

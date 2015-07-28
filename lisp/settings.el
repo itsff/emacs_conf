@@ -263,6 +263,10 @@
 
                                    ("\\.js$"    . js-mode)
 
+                                   ("\\.htm$"    . web-mode)
+                                   ("\\.html$"   . web-mode)
+
+
                                    ("\\.html$"   . sgml-mode)
                                    ("\\.htm$"    . sgml-mode)
                                    ("\\.css$"    . sgml-mode)
